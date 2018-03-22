@@ -1,0 +1,56 @@
+
+div {
+  border: 1px solid black;
+}
+.post {
+  border-radius: .3vw;
+}
+
+.post-head {
+
+}
+
+.post-content {
+  
+}
+
+.post-foot {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 6fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 6fr 1fr 1fr 1fr 1fr;
+}
+
+.post-foot > * {
+  padding: .2vw;
+}
+
+.post-note-count {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+}
+
+.post-share-button {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / 4;
+}
+
+.post-reply-button {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4 / 5;
+}
+
+.post-reblog-button {
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 1;
+  grid-column: 5 / 6;
+}
+
+.post-like-button {
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 1;
+  grid-column: 6 / 7;
+}
