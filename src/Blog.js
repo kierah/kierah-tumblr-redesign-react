@@ -1,60 +1,45 @@
+// Apollo integration borrowed from https://blog.graph.cool/how-to-use-create-react-app-with-graphql-apollo-62e574617cff
+
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import Post from './Post.js';
+import BlogHead from './BlogHead.js';
 import './Blog.css';
 
-const GRAPHQL_SERVER='http://localhost:4000/graphql'
-const BLOG_QUERY=`query AllPosts($blogId: String) {
-  AllPosts(blogId: $blogId)
-}`;
-
-
 class Blog extends Component {
-  constructor(props) {
-    super(props);
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", GRAPHQL_SERVER);
-    xhr.responseType = 'json';
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onload = this.onLoad.bind(this);
-
-    var query = BLOG_QUERY;
-    console.log("sending query");
-    xhr.send(JSON.stringify({
-      query: query,
-      variables: { id: props.blogId },
-    }));
-    this.state = {
-      data: {
-        blogId: props.blogId,
-        xhr: xhr,
-      }
-    }
-  }
-  getData() {
-
-  }
-  onLoad() {
-    let xhr = this.state.data.xhr;
-    console.log('data returned:', xhr.response);
-    this.setState({
-       data: {
-         response: xhr.response,
-       }
-    });
-  }
 
   render() {
-    return (
-      <div className="blog-container">
-        {(this.state.data.response) ? this.state.data.response: 'No data'}
-        <Post />
-      </div>
+    if (this.props.data.loading) {
+      return (<div>Loading</div>);
+    }
 
+    console.log("render", this.props.data);
+
+
+    return (
+      <div className="page-container">
+        <BlogHead blogId={this.props.blogId} />
+        <div className="blog-container">
+          <div className="blog">
+            {this.props.data.allPosts.map((post) =>
+              <Post key={post.id} post={post} refresh={() => this.props.data.refetch()} />
+            )}
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
-export default Blog;
+const BLOG_QUERY=gql`query AllPosts($blogId: String) {
+  allPosts(blogId: $blogId) {
+    id
+    blogId
+    title
+    text
+    likes
+  }
+}`;
+
+export default graphql(BLOG_QUERY)(Blog)

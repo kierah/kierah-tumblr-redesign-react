@@ -9,14 +9,16 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+const GRAPHQL_SERVER='http://localhost:4000/graphql'
+
 const networkInterface = createNetworkInterface({
-  uri: 'https://api.graph.cool/simple/v1/__PROJECT_ID__'
+  uri: GRAPHQL_SERVER
 })
 const client = new ApolloClient({
   networkInterface
 })
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//ReactDOM.render(<App />, document.getElementById('root'));
 
 ReactDOM.render((
   <ApolloProvider client={client}>
