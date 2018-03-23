@@ -10,16 +10,17 @@ import './Blog.css';
 class Blog extends Component {
 
   render() {
+//    const blogId = this.props.match.params.blogId;
+    let blogId=this.props.blogId;
     if (this.props.data.loading) {
       return (<div>Loading</div>);
     }
 
     console.log("render", this.props.data);
 
-
     return (
       <div className="page-container">
-        <BlogHead blogId={this.props.blogId} />
+        <BlogHead blogId={blogId} />
         <div className="blog-container">
           <div className="blog">
             {this.props.data.allPosts.map((post) =>
@@ -39,6 +40,7 @@ const BLOG_QUERY=gql`query AllPosts($blogId: String) {
     title
     text
     likes
+    createdAt
   }
 }`;
 

@@ -10,8 +10,7 @@ class BlogHead extends Component {
     if (this.props.data.loading) {
       return (<div>Loading</div>);
     }
-    let {id,
-         title,
+    let {title,
          description,
          authorName,
          avatar} = (this.props.data.blogInfo) ? this.props.data.blogInfo : null;
@@ -20,8 +19,8 @@ class BlogHead extends Component {
 
     return (
       <div className="blog-head-container">
-        <div className="avatar-container">
-          <img className="shadow" alt={authorName + " avatar"} src={avatar} />
+        <div className="blog-avatar-container">
+          <img className="shadow rounded" alt={authorName + " avatar"} src={avatar} />
         </div>
         <div className="blog-title">
         {title}

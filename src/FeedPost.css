@@ -1,0 +1,17 @@
+.feed-post-container {
+  display: grid;
+  grid-template-columns: 64px minmax(400px, auto);
+}
+
+.feed-avatar {
+  grid-column: 1 / 2;
+  width: 64px;
+}
+
+.feed-post {
+  grid-column: 2 / 3;
+  margin: 0px 0px 1.5rem 1.5rem;
+  padding: 1rem;
+  border-radius: .3rem .3rem;
+  background-color: #fff;
+}

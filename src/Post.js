@@ -9,7 +9,7 @@ class Post extends Component {
     if (!post) {
       return;
     }
-
+// TODO Add createdAt
     console.log("post ", post);
     console.log("refresh ", refresh);
     return (
@@ -27,10 +27,6 @@ class Post extends Component {
 }
 
 class PostFoot extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let {notes} = this.props;
 

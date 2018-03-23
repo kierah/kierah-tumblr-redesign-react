@@ -1,0 +1,10 @@
+
+.feed-page-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.feed-container {
+  grid-column: 2 / 3;
+  padding: 5rem 1rem 1rem 1rem;
+}
