@@ -1,0 +1,60 @@
+.sidebar-container {
+//  grid-column: 3 / 4;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 310px;
+  padding: 5rem 2rem 1rem 1rem;
+}
+
+.recommended-blogs-container {
+  color: #505E72;
+}
+
+.recommended-blogs-title {
+  border-bottom: 2px solid #505E72;
+  color: #505E72;
+  font-size: 14px;
+  font-weight: bold;
+  padding: .25rem;
+}
+
+.recommended-blog {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 16px 16px;
+  border-bottom: 1px solid #505E72;
+  padding: .75rem;
+  font-size: 13px;
+}
+
+.recommended-blog-avatar-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.recommended-blog-avatar {
+  width: 32px;
+}
+
+.recommended-blog-author {
+  grid-column: 2 / 3;
+  grid-row: 1;
+  color: #A2A9B4;
+  font-weight: bold;
+}
+
+.recommended-blog-title {
+  grid-column: 2 / 3;
+  grid-row: 2;
+  font-weight: bold;
+}
+
+.recommended-blog-follow {
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
+}
+
+.recommended-blog-follow-button {
+  font-size: 32px;
+}

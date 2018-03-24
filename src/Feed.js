@@ -5,6 +5,7 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import FeedPost from './FeedPost';
 import FeedNavBar from './FeedNavBar';
+import Sidebar from './Sidebar';
 import './Feed.css';
 
 class Feed extends Component {
@@ -25,6 +26,7 @@ class Feed extends Component {
           <FeedPost key={post.id} post={post} refresh={() => this.props.data.refetch()} />
           )}
         </div>
+        <Sidebar />
       </div>
       </div>
     );
