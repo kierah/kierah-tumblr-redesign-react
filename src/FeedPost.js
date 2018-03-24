@@ -11,10 +11,13 @@ class FeedPost extends Component {
     if (!post) {
       return;
     }
+
+    console.log(post);
     return (
       <div className="feed-post-container">
         <Link to={blogUrl}>
-        <img className="feed-avatar shadow rounded" src="https://www.axiapayments.com/wp-content/uploads/2014/09/placeholder-square.jpg" />
+        <img className="feed-avatar shadow rounded"
+             src={post.avatar} />
         </Link>
 
         <article className="feed-post shadow rounded">
@@ -22,7 +25,17 @@ class FeedPost extends Component {
           {post.title}
           </header>
           <div className="post-content">
-          {post.text}
+
+          {post.type === "image" && (
+            <img className="post-image" src={post.content} />
+          )}
+
+          {post.type === "text" && (
+            <div className="post-text">
+              {post.content}
+            </div>
+          )}
+
           </div>
           <PostFoot notes={post.likes}/>
         </article>

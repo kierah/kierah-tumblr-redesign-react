@@ -38,9 +38,10 @@ const BLOG_QUERY=gql`query AllPosts($blogId: String) {
     id
     blogId
     title
-    text
+    content
     likes
     createdAt
+    type
   }
 }`;
 

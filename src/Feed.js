@@ -39,9 +39,11 @@ const FEED_QUERY=gql`query feedQuery {
     id
     blogId
     title
-    text
+    content
     likes
+    avatar
     createdAt
+    type
   }
 }`;
 

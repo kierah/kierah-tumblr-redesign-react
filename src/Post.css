@@ -7,10 +7,20 @@
 }
 
 .post-head {
-
+  padding: .5rem 1rem .5rem 1rem;
+  font-weight: bold;
 }
 
 .post-content {
+}
+
+.post-image {
+  object-fit: contain;
+  width: 500px;
+}
+
+.post-text {
+  padding: 1rem;
 
 }
 
@@ -19,6 +29,7 @@
   display: grid;
   -ms-grid-columns: 2fr 6fr 1fr 1fr 1fr 1fr;
       grid-template-columns: 2fr 6fr 1fr 1fr 1fr 1fr;
+      padding: .5rem 1rem .5rem 1rem;
 }
 
 .post-foot > * {

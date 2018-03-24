@@ -1,10 +1,27 @@
 .sidebar-container {
 //  grid-column: 3 / 4;
   position: fixed;
-  right: 0px;
   top: 0px;
   width: 310px;
   padding: 5rem 2rem 1rem 1rem;
+}
+
+@media (max-width: 950px) {
+  .sidebar-container {
+    left: 620px;
+  };
+}
+@media (max-width: 1100px) and (min-width: 951px) {
+  .sidebar-container {
+    left: 65vw;
+  }
+
+}
+@media (min-width: 1101px) {
+  .sidebar-container {
+    right: 0px;
+  }
+
 }
 
 .recommended-blogs-container {

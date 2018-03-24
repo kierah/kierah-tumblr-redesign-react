@@ -18,7 +18,7 @@ class Post extends Component {
         {post.title}
         </header>
         <div className="post-content">
-        {post.text}
+        {post.content}
         </div>
         <PostFoot notes={post.likes}/>
       </article>
