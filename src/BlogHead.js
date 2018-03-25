@@ -20,7 +20,7 @@ class BlogHead extends Component {
     return (
       <div className="blog-head-container">
         <div className="blog-avatar-container">
-          <img className="shadow rounded" alt={authorName + " avatar"} src={avatar} />
+          <img className="blog-avatar shadow rounded" alt={authorName + " avatar"} src={avatar} />
         </div>
         <div className="blog-title">
         {title}

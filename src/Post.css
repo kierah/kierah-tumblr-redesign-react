@@ -3,7 +3,7 @@
   color: #000;
   background-color: #fff;
   margin: 2vh;
-  padding: 1vh;
+  width: 600px;
 }
 
 .post-head {
@@ -16,7 +16,7 @@
 
 .post-image {
   object-fit: contain;
-  width: 500px;
+  width: 600px;
 }
 
 .post-text {
@@ -29,7 +29,8 @@
   display: grid;
   -ms-grid-columns: 2fr 6fr 1fr 1fr 1fr 1fr;
       grid-template-columns: 2fr 6fr 1fr 1fr 1fr 1fr;
-      padding: .5rem 1rem .5rem 1rem;
+      padding: .5rem 0rem .5rem 1rem;
+  color: #939393;
 }
 
 .post-foot > * {

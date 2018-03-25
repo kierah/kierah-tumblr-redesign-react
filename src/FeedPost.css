@@ -15,3 +15,7 @@
   width: 500px;
   background-color: #fff;
 }
+.feed-post-image {
+  object-fit: contain;
+  width: 500px;
+}

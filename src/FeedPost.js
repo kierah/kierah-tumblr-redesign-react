@@ -5,18 +5,17 @@ import './FeedPost.css';
 class FeedPost extends Component {
 
   render() {
-    let {post, refresh} = this.props;
+    let { post, refresh } = this.props;
     let blogUrl = '/blog/'+post.blogId;
 
     if (!post) {
       return;
     }
 
-    console.log(post);
     return (
       <div className="feed-post-container">
         <Link to={blogUrl}>
-        <img className="feed-avatar shadow rounded"
+        <img alt="Post author's avatar" className="feed-avatar shadow rounded"
              src={post.avatar} />
         </Link>
 
@@ -27,7 +26,7 @@ class FeedPost extends Component {
           <div className="post-content">
 
           {post.type === "image" && (
-            <img className="post-image" src={post.content} />
+            <img alt="Post author's avatar" className="feed-post-image" src={post.content} />
           )}
 
           {post.type === "text" && (
@@ -45,20 +44,17 @@ class FeedPost extends Component {
 }
 
 class PostFoot extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let {notes} = this.props;
 
     return (
       <footer className="post-foot">
-        <div className="post-note-count">{notes} notes</div>
-        <div className="post-share-button">S</div>
-        <div className="post-reply-button">Rp</div>
-        <div className="post-reblog-button">Rb</div>
-        <div className="post-like-button">L</div>
+      <div className="post-note-count">{notes} notes</div>
+      <div className="post-share-button"><i className="fa fa-paper-plane-o"></i></div>
+      <div className="post-reply-button"><i className="fa fa-comment-o"></i></div>
+      <div className="post-reblog-button"><i className="fa fa-exchange"></i></div>
+      <div className="post-like-button"><i className="fa fa-heart"></i></div>
+
       </footer>
     );
   };

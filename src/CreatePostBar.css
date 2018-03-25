@@ -1,0 +1,61 @@
+.create-post {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  grid-column: 2 / 3;
+  margin: 0px 0px 1.2rem 1.2rem;
+  background-color: #fff;
+  width: 500px;
+}
+
+.create-post > div {
+  width: 70px;
+  text-align: center;
+  padding: 1.5rem 0rem 1.5rem 0rem;
+}
+.create-post > div:hover {
+  padding-top: 1.3rem;
+}
+
+.create-post i {
+  font-size: 33px;
+}
+
+.create-post-text-button i {
+  color: #575757;
+}
+
+.create-post-photo-button i {
+  color: #DD6E53;
+}
+
+.create-post-quote-button i {
+  color: #F3A343;
+}
+
+.create-post-link-button i {
+  color: #67C396;
+}
+
+.create-post-chat-button i {
+  color: #64A8D1;
+}
+
+.create-post-audio-button i {
+  color: #B08AC8;
+}
+
+.create-post-video-button i {
+  color: #828D95;
+}
+
+.create-post-text-button,
+.create-post-photo-button,
+.create-post-quote-button,
+.create-post-link-button,
+.create-post-chat-button,
+.create-post-audio-button {
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(#000, #828D95, #000);
+}

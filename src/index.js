@@ -14,6 +14,7 @@ import { ApolloProvider } from 'react-apollo'
 import './index.css';
 import BlogApp from './BlogApp';
 import FeedApp from './FeedApp';
+import CreateApp from './CreateApp';
 import registerServiceWorker from './registerServiceWorker';
 
 const GRAPHQL_SERVER='http://localhost:4000/graphql'
@@ -34,6 +35,7 @@ ReactDOM.render((
     <Router>
       <Switch>
         <Route exact path='/' component={FeedApp} />
+        <Route path="/create" component={CreateApp} />
         <Route path='/blog/:blogId' component={BlogApp} />
         <Route path='*' component={NotFound} />
       </Switch>

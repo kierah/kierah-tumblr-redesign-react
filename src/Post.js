@@ -4,21 +4,28 @@ import './Post.css';
 class Post extends Component {
 
   render() {
-    let {post, refresh} = this.props;
+    let { post } = this.props;
 
     if (!post) {
       return;
     }
-// TODO Add createdAt
-    console.log("post ", post);
-    console.log("refresh ", refresh);
     return (
-      <article className="post shadow">
+      <article className="post shadow rounded">
         <header className="post-head">
-        {post.title}
+          {post.title}
         </header>
         <div className="post-content">
-        {post.content}
+
+        {post.type === "image" && (
+          <img alt="Post content" className="post-image" src={post.content} />
+        )}
+
+        {post.type === "text" && (
+          <div className="post-text">
+            {post.content}
+          </div>
+        )}
+
         </div>
         <PostFoot notes={post.likes}/>
       </article>
@@ -33,10 +40,10 @@ class PostFoot extends Component {
     return (
       <footer className="post-foot">
         <div className="post-note-count">{notes} notes</div>
-        <div className="post-share-button">S</div>
-        <div className="post-reply-button">Rp</div>
-        <div className="post-reblog-button">Rb</div>
-        <div className="post-like-button">L</div>
+        <div className="post-share-button"><i className="fa fa-paper-plane-o"></i></div>
+        <div className="post-reply-button"><i className="fa fa-comment-o"></i></div>
+        <div className="post-reblog-button"><i className="fa fa-exchange"></i></div>
+        <div className="post-like-button"><i className="fa fa-heart"></i></div>
       </footer>
     );
   };

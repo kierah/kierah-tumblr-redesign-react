@@ -13,9 +13,8 @@ class Sidebar extends Component {
       return (<div>Loading</div>);
     }
 
-    console.log("render sidebar ", this.props.data);
-
     let blogs = this.props.data.allBlogs;
+    blogs = blogs.filter((blog) => {return (blog.authorName !== "this-user")});
     blogs = blogs.slice(0,5);
 
     return (
@@ -39,7 +38,7 @@ class SidebarBlog extends Component {
     return (
       <div className="recommended-blog">
         <div className="recommended-blog-avatar-container">
-          <img className="recommended-blog-avatar rounded" src={blog.avatar} />
+          <img alt={blog.authorName + " avatar"} className="recommended-blog-avatar rounded" src={blog.avatar} />
         </div>
         <div className="recommended-blog-author">
           {blog.authorName}

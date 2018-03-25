@@ -7,6 +7,7 @@
   align-items: center;
   color: #fff;
   background-color: #666;
+  padding: 2rem;
 }
 
 .blog-avatar-container {
@@ -14,7 +15,7 @@
   width: 128px;
 }
 
-.avatar-container img {
+.blog-avatar {
   object-fit: contain;
   height: 128px;
 }
