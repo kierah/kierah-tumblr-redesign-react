@@ -28,21 +28,35 @@ class Sidebar extends Component {
       <VelocityComponent
         animation={isTheater ? {
           opacity: 0,
+          visibility: 'hidden',
         } : {
           opacity: 1,
+          visibility: 'visible',
         }}>
         <div className="sidebar-container">
           <div className="recommended-blogs-title">
             RECOMMENDED BLOGS
           </div>
+          {isTheater ? (
           <Radar blogId={radar.id} blog={radar}
-            setSidebarOverlay={setSidebarOverlay}
-            openSidebarOverlay={openSidebarOverlay} />
+            setSidebarOverlay={() => {}}
+            openSidebarOverlay={() => {}} />
+          ) : (
+            <Radar blogId={radar.id} blog={radar}
+              setSidebarOverlay={setSidebarOverlay}
+              openSidebarOverlay={openSidebarOverlay} />
+          )}
           <div className="recommended-blogs-container">
             {blogs.map((blog) =>
+              isTheater ? (
               <SidebarBlog key={blog.id} blog={blog}
-                setSidebarOverlay={setSidebarOverlay}
-                openSidebarOverlay={openSidebarOverlay} />
+                setSidebarOverlay={() => {}}
+                openSidebarOverlay={() => {}} />
+              ) : (
+                <SidebarBlog key={blog.id} blog={blog}
+                  setSidebarOverlay={setSidebarOverlay}
+                  openSidebarOverlay={openSidebarOverlay}
+               />)
             )}
           </div>
         </div>
