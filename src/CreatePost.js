@@ -8,7 +8,6 @@ import './CreatePost.css';
 class CreatePost extends Component {
     constructor(props) {
       super(props);
-      console.log("create post constructor, ", this.props);
       this.state = {
         title: '',
         content: '',
@@ -29,11 +28,11 @@ class CreatePost extends Component {
             <input className="create-post-title-input"
               maxLength="1000" minLength="1"
               onChange={e => this.setState({ title: e.target.value })}
-              placeHolder="Title"></input>
+              placeholder="Title"></input>
             {type === "text" && (
             <textarea className="create-post-content-input"
               onChange={e => this.setState({ content: e.target.value })}
-              placeHolder="Enter content..."
+              placeholder="Enter content..."
               maxLength="60000" minLength="1"
               required
               cols="70" rows="15"></textarea>
@@ -41,7 +40,7 @@ class CreatePost extends Component {
             {type === "image" && (
             <input className="create-post-content-input"
               onChange={e => this.setState({ content: e.target.value })}
-              placeHolder="Enter photo url..."
+              placeholder="Enter photo url..."
               maxLength="3000" minLength="5"
               required
             ></input>
@@ -51,7 +50,7 @@ class CreatePost extends Component {
               <img alt="Create post image preview" src={this.state.content} />
             </div>
             )}
-            <div class="create-post-foot">
+            <div className="create-post-foot">
               <button className="create-post-close"
                 onClick={e => {
                   this.setState({content: '', title: ''});

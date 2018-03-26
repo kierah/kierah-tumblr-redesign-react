@@ -4,20 +4,24 @@ import './Post.css';
 class Post extends Component {
 
   render() {
-    let { post } = this.props;
+    let { post, overlay } = this.props;
+    let prefix = "";
+    if (overlay) {
+      prefix = "overlay-";
+    }
 
     if (!post) {
       return;
     }
     return (
-      <article className="post shadow rounded">
+      <article className={prefix+"post shadow rounded"}>
         <header className="post-head">
           {post.title}
         </header>
-        <div className="post-content">
+        <div className={prefix+"post-content"}>
 
         {post.type === "image" && (
-          <img alt="Post content" className="post-image" src={post.content} />
+          <img alt="Post content" className={prefix+"post-image"} src={post.content} />
         )}
 
         {post.type === "text" && (

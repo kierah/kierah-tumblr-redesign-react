@@ -8,18 +8,15 @@ import './CreatePostBar.css';
 class CreatePostBar extends Component {
   constructor (props) {
     super(props);
-    console.log("constructor ",props);
     this.state = {
       creatingPost: false,
       type: 'text',
       blogId: this.props.blogId,
       avatar: this.props.avatar,
     }
-
   }
 
   render() {
-    console.log('create post', this.props);
     let blogUrl = '/blog/'+this.state.blogId;
     return (
       <div className="feed-post-container">
@@ -68,9 +65,9 @@ class CreatePostBar extends Component {
                     type={this.state.type}
                     avatar={this.state.avatar}
                     blogId={this.state.blogId}
-                    finishCreatingPost={(() =>
+                    finishCreatingPost={() =>
                       this.setState({creatingPost: false,
-                                     type: 'text'})).bind(this)
+                                     type: 'text'})
                     }/>
       </div>
     )

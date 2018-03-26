@@ -14,18 +14,21 @@ class BlogHead extends Component {
          description,
          authorName,
          avatar} = (this.props.data.blogInfo) ? this.props.data.blogInfo : null;
-
-    console.log("render", this.props.data);
+    let { overlay } = this.props;
+    let prefix = "";
+    if (overlay) {
+      prefix = "overlay-";
+    }
 
     return (
-      <div className="blog-head-container">
-        <div className="blog-avatar-container">
-          <img className="blog-avatar shadow rounded" alt={authorName + " avatar"} src={avatar} />
+      <div className={prefix+"blog-head-container"}>
+        <div className={prefix+"blog-avatar-container"}>
+          <img className={prefix+"blog-avatar shadow rounded"} alt={authorName + " avatar"} src={avatar} />
         </div>
-        <div className="blog-title">
+        <div className={prefix+"blog-title"}>
         {title}
         </div>
-        <div className="blog-description">
+        <div className={prefix+"blog-description"}>
         {description}
         </div>
       </div>

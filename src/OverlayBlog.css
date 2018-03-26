@@ -1,0 +1,58 @@
+.overlay-blog-container {
+  display: grid;
+  grid-template-columns: 1fr 400px 1fr;
+  background-color: #ccc;
+}
+
+.overlay-blog {
+  grid-column: 2 / 3;
+}
+
+
+.overlay-blog-head-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  background-color: #666;
+  padding: 2rem;
+}
+
+.overlay-blog-avatar-container {
+  height: 128px;
+  width: 128px;
+}
+
+.overlay-blog-avatar {
+  object-fit: contain;
+  height: 128px;
+}
+
+.overlay-blog-title, .overlay-blog-description {
+  font-family: "Titillium Web", sans-serif;
+}
+
+.overlay-avatar-container, .overlay-blog-title, .overlay-blog-description {
+  margin: 4vh;
+}
+
+.overlay-blog-title {
+  font-size: 2rem;
+}
+
+
+.overlay-post {
+  color: #000;
+  background-color: #fff;
+  margin: 2vh;
+  width: 400px;
+}
+
+.overlay-post-content {
+}
+
+.overlay-post-image {
+  object-fit: contain;
+  width: 400px;
+}

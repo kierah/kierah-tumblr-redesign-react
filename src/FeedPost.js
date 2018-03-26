@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './FeedPost.css';
 
 class FeedPost extends Component {
 
   render() {
-    let { post, refresh } = this.props;
+    let { post, refresh,
+          openSidebarOverlay,
+          setSidebarOverlay } = this.props;
     let blogUrl = '/blog/'+post.blogId;
 
     if (!post) {
@@ -14,10 +15,11 @@ class FeedPost extends Component {
 
     return (
       <div className="feed-post-container">
-        <Link to={blogUrl}>
         <img alt="Post author's avatar" className="feed-avatar shadow rounded"
-             src={post.avatar} />
-        </Link>
+             src={post.avatar} onClick={() => {
+               setSidebarOverlay("blog", {blogId: post.blogId});
+               openSidebarOverlay();
+             }} />
 
         <article className="feed-post shadow rounded">
           <header className="post-head">

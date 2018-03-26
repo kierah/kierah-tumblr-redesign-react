@@ -7,15 +7,31 @@ import CreatePostBar from './CreatePostBar';
 import FeedPost from './FeedPost';
 import FeedNavBar from './FeedNavBar';
 import Sidebar from './Sidebar';
+import SidebarOverlay from './SidebarOverlay';
 import './Feed.css';
 
 class Feed extends Component {
+  state = { sidebarOverlayOpen: false,
+            sidebarOverlayType: "blog",
+            displayProps: {}};
+
+  onToggle = () => {
+    this.setState(state => {
+      state.sidebarOverlayOpen = !state.sidebarOverlayOpen;
+      return state;
+    });
+  };
+
+  setSidebarOverlay = (type, displayProps) => {
+    console.log("set sidebar overlay", displayProps);
+    this.setState({sidebarOverlayType: type,
+                   displayProps: displayProps});
+  };
 
   render() {
     if (this.props.feedQuery.loading) {
       return (<div>Loading</div>);
     }
-    console.log(this.props);
     let { id, avatar } =this.props.avatarQuery.blogInfo;
 
     return (
@@ -25,10 +41,17 @@ class Feed extends Component {
           <div className="feed-container">
             <CreatePostBar blogId={id} avatar={avatar} />
             {this.props.feedQuery.allPostsFromAllBlogs.map((post) =>
-              <FeedPost key={post.id} post={post} refresh={() => this.props.feedQuery.refetch()} />
+              <FeedPost key={post.id} post={post}
+                refresh={() => this.props.feedQuery.refetch()}
+                openSidebarOverlay={this.onToggle}
+                setSidebarOverlay={this.setSidebarOverlay} />
             )}
           </div>
           <Sidebar />
+          <SidebarOverlay isOpen={this.state.sidebarOverlayOpen}
+            close={this.onToggle}
+            type={this.state.sidebarOverlayType}
+            displayProps={this.state.displayProps}/>
         </div>
       </div>
     );
