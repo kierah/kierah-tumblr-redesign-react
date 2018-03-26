@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-
+import Radar from './Radar';
 import './Sidebar.css';
 
 class Sidebar extends Component {
@@ -13,15 +13,19 @@ class Sidebar extends Component {
       return (<div>Loading</div>);
     }
 
-    let blogs = this.props.data.allBlogs;
+    let blogs = this.props.data.allBlogs,
+      radar;
     blogs = blogs.filter((blog) => {return (blog.authorName !== "this-user")});
     blogs = blogs.slice(0,5);
+    radar = blogs.shift();
+
 
     return (
       <div className="sidebar-container">
         <div className="recommended-blogs-title">
           RECOMMENDED BLOGS
         </div>
+        <Radar blogId={radar.id} blog={radar} />
         <div className="recommended-blogs-container">
           {blogs.map((blog) =>
             <SidebarBlog key={blog.id} blog={blog} refresh={() => this.props.data.refetch()} />

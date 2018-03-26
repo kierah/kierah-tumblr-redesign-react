@@ -1,0 +1,40 @@
+.radar-container {
+  color: #505E72;
+}
+.radar-blog {
+  padding: .75rem;
+
+}
+.radar-follow-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 16px 16px auto;
+  border-bottom: 1px solid #505E72;
+  font-size: 13px;
+  padding: .75rem 0rem .75rem .75rem;
+}
+
+.radar-post-container {
+  grid-column: 1 / 4;
+  grid-row: 3;
+  background-color: #fff;
+  margin: .5rem -.75rem .5rem -.75rem;
+}
+
+.radar-post-head {
+  padding: .5rem 1rem .5rem 1rem;
+  font-weight: bold;
+}
+
+.radar-post-content {
+}
+
+.radar-post-image {
+  object-fit: contain;
+  width: 310px;
+}
+
+.radar-post-text {
+  padding: 1rem;
+
+}
