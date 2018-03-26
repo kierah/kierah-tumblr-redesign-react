@@ -3,35 +3,45 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import { VelocityComponent } from 'velocity-react';
 import Radar from './Radar';
 import './Sidebar.css';
 
 class Sidebar extends Component {
 
   render() {
+    console.log("Sidebar ", this.props);
     if (this.props.data.loading) {
       return (<div>Loading</div>);
     }
 
     let blogs = this.props.data.allBlogs,
+      isTheater = this.props.isTheater,
       radar;
     blogs = blogs.filter((blog) => {return (blog.authorName !== "this-user")});
     blogs = blogs.slice(0,5);
     radar = blogs.shift();
-
-
+/*
+        */
     return (
-      <div className="sidebar-container">
-        <div className="recommended-blogs-title">
-          RECOMMENDED BLOGS
+      <VelocityComponent
+        animation={isTheater ? {
+          opacity: 0,
+        } : {
+          opacity: 1,
+        }}>
+        <div className="sidebar-container">
+          <div className="recommended-blogs-title">
+            RECOMMENDED BLOGS
+          </div>
+          <Radar blogId={radar.id} blog={radar} />
+          <div className="recommended-blogs-container">
+            {blogs.map((blog) =>
+              <SidebarBlog key={blog.id} blog={blog} refresh={() => this.props.data.refetch()} />
+            )}
+          </div>
         </div>
-        <Radar blogId={radar.id} blog={radar} />
-        <div className="recommended-blogs-container">
-          {blogs.map((blog) =>
-            <SidebarBlog key={blog.id} blog={blog} refresh={() => this.props.data.refetch()} />
-          )}
-        </div>
-      </div>
+      </VelocityComponent>
     );
   }
 }

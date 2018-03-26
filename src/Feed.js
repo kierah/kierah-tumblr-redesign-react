@@ -13,13 +13,30 @@ import './Feed.css';
 class Feed extends Component {
   state = { sidebarOverlayOpen: false,
             sidebarOverlayType: "blog",
-            displayProps: {}};
+            displayProps: {},
+            isTheater: false};
 
-  onToggle = () => {
+  toggleSidebarOverlay = () => {
     this.setState(state => {
       state.sidebarOverlayOpen = !state.sidebarOverlayOpen;
       return state;
     });
+  };
+
+  toggleTheater = () => {
+    let page = document.getElementsByClassName("full-page-container")[0],
+        nav = document.getElementsByClassName("feed-nav-bar")[0];
+    console.log("Toggle theater");
+    if (!this.state.isTheater) {
+      page.classList.add("theater-mode");
+      nav.classList.add("theater-nav-bar");
+      this.setState({isTheater: true});
+    }
+    else {
+      page.classList.remove("theater-mode");
+      nav.classList.remove("theater-nav-bar");
+      this.setState({isTheater: false});
+    }
   };
 
   setSidebarOverlay = (type, displayProps) => {
@@ -36,20 +53,21 @@ class Feed extends Component {
 
     return (
       <div className="full-page-container">
-        <FeedNavBar />
+        <FeedNavBar toggleTheater={this.toggleTheater}
+          isTheater={this.state.isTheater}/>
         <div className="feed-page-container">
           <div className="feed-container">
             <CreatePostBar blogId={id} avatar={avatar} />
             {this.props.feedQuery.allPostsFromAllBlogs.map((post) =>
               <FeedPost key={post.id} post={post}
                 refresh={() => this.props.feedQuery.refetch()}
-                openSidebarOverlay={this.onToggle}
+                openSidebarOverlay={this.toggleSidebarOverlay}
                 setSidebarOverlay={this.setSidebarOverlay} />
             )}
           </div>
-          <Sidebar />
+          <Sidebar isTheater={this.state.isTheater}/>
           <SidebarOverlay isOpen={this.state.sidebarOverlayOpen}
-            close={this.onToggle}
+            close={this.toggleSidebarOverlay}
             type={this.state.sidebarOverlayType}
             displayProps={this.state.displayProps}/>
         </div>

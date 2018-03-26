@@ -8,3 +8,14 @@
   grid-column: 2 / 3;
   padding: 5rem 1rem 1rem 1rem;
 }
+
+.theater-mode {
+  background:
+  linear-gradient(0.5turn, rgb(46, 56, 71, .5), rgb(46, 56, 71, 0) 15%, rgb(46, 56, 71, 0) 65%, rgb(46, 56, 71, .5)),
+  linear-gradient(0.25turn, rgb(46, 56, 71, 1), rgb(46, 56, 71, 0) 15%, rgb(46, 56, 71, 0) 65%, rgb(46, 56, 71, 1)) ,
+linear-gradient(0.25turn, rgb(54, 70, 93, 1), rgb(54, 70, 93, 1) );
+}
+
+.theater-nav-bar {
+  background: rgb(46, 56, 71, 1);
+}

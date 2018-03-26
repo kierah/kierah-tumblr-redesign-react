@@ -14,7 +14,7 @@ class CreatePost extends Component {
       };
     }
     render() {
-      let { type, blogId, avatar, visible, finishCreatingPost } = this.props;
+      let { type, /* blogId, avatar,*/ visible, finishCreatingPost } = this.props;
       let containerClass="create-post-scrim";
       if (visible) {
         containerClass += " visible";
@@ -47,7 +47,7 @@ class CreatePost extends Component {
             )}
             {type === "image" && (
             <div className="create-post-image-preview">
-              <img alt="Create post image preview" src={this.state.content} />
+              <img alt="Create post content preview" src={this.state.content} />
             </div>
             )}
             <div className="create-post-foot">

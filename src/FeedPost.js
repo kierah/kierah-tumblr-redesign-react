@@ -4,10 +4,10 @@ import './FeedPost.css';
 class FeedPost extends Component {
 
   render() {
-    let { post, refresh,
+    let { post,
           openSidebarOverlay,
           setSidebarOverlay } = this.props;
-    let blogUrl = '/blog/'+post.blogId;
+//    let blogUrl = '/blog/'+post.blogId;
 
     if (!post) {
       return;

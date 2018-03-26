@@ -1,17 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { VelocityComponent } from 'velocity-react';
 import './FeedNavBar.css';
 
 
-const FeedNavBar = () => (
+const FeedNavBar = ({ toggleTheater, isTheater }) => (
   <nav className="feed-nav-bar">
-  <div className="corner-logo"></div>
+  <Link to="/">
+    <div className="corner-logo"></div>
+  </Link>
   <div className="nav-search">
     <div className="search-button"><i className="fa fa-search"></i></div>
     <input type="search" className="search-input"></input>
   </div>
-  <div className="nav nav-theater">
-    <i className="fa fa-film"></i>
-  </div>
+  <VelocityComponent
+    animation={isTheater ? {
+      color: '#fff',
+    } : {
+      color: '#9AA2AE',
+    }}>
+    <div className="nav nav-theater"
+      onClick={() => {toggleTheater()}}
+      >
+      <i className="fa fa-film"></i>
+    </div>
+  </VelocityComponent>
   <div className="nav nav-explore">
     <i className="fa fa-compass"></i>
   </div>

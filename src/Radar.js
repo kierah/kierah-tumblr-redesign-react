@@ -55,10 +55,6 @@ class Radar extends Component {
         </div>
 
     );
-    /*
-
-
-    */
   }
 }
 
