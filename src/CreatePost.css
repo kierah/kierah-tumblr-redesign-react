@@ -5,7 +5,7 @@
   left: 0px;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 20vh 50vh 30vh;
+  grid-template-rows: 20vh auto 30vh;
   background-color: rgba(100,100,100,.7);
   height: 100vh;
   width: 100vw;
@@ -13,7 +13,7 @@
   visibility: hidden;
 }
 
-.create-post-text-container {
+.create-post-ui-container {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   display: flex;
@@ -37,6 +37,12 @@
 .create-post-foot {
   display: flex;
   justify-content: space-between;
+}
+
+.create-post-image-preview,
+.create-post-image-preview img,
+{
+  width: 500px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */

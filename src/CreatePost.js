@@ -24,18 +24,33 @@ class CreatePost extends Component {
 
       return (
         <div className={containerClass}>
-          <div className="create-post-text-container shadow rounded">
+          <div className="create-post-ui-container shadow rounded">
             <div className="create-post-head">Create Post</div>
             <input className="create-post-title-input"
+              maxLength="1000" minLength="1"
               onChange={e => this.setState({ title: e.target.value })}
               placeHolder="Title"></input>
+            {type === "text" && (
             <textarea className="create-post-content-input"
               onChange={e => this.setState({ content: e.target.value })}
               placeHolder="Enter content..."
               maxLength="60000" minLength="1"
               required
               cols="70" rows="15"></textarea>
-
+            )}
+            {type === "image" && (
+            <input className="create-post-content-input"
+              onChange={e => this.setState({ content: e.target.value })}
+              placeHolder="Enter photo url..."
+              maxLength="3000" minLength="5"
+              required
+            ></input>
+            )}
+            {type === "image" && (
+            <div className="create-post-image-preview">
+              <img alt="Create post image preview" src={this.state.content} />
+            </div>
+            )}
             <div class="create-post-foot">
               <button className="create-post-close"
                 onClick={e => {
