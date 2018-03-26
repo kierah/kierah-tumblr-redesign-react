@@ -16,13 +16,14 @@ class Sidebar extends Component {
     }
 
     let blogs = this.props.data.allBlogs,
-      isTheater = this.props.isTheater,
+      { isTheater,
+        setSidebarOverlay,
+        openSidebarOverlay } = this.props,
       radar;
     blogs = blogs.filter((blog) => {return (blog.authorName !== "this-user")});
     blogs = blogs.slice(0,5);
     radar = blogs.shift();
-/*
-        */
+
     return (
       <VelocityComponent
         animation={isTheater ? {
@@ -34,10 +35,14 @@ class Sidebar extends Component {
           <div className="recommended-blogs-title">
             RECOMMENDED BLOGS
           </div>
-          <Radar blogId={radar.id} blog={radar} />
+          <Radar blogId={radar.id} blog={radar}
+            setSidebarOverlay={setSidebarOverlay}
+            openSidebarOverlay={openSidebarOverlay} />
           <div className="recommended-blogs-container">
             {blogs.map((blog) =>
-              <SidebarBlog key={blog.id} blog={blog} refresh={() => this.props.data.refetch()} />
+              <SidebarBlog key={blog.id} blog={blog}
+                setSidebarOverlay={setSidebarOverlay}
+                openSidebarOverlay={openSidebarOverlay} />
             )}
           </div>
         </div>
@@ -48,9 +53,16 @@ class Sidebar extends Component {
 
 class SidebarBlog extends Component {
   render() {
-    let { blog } = this.props;
+    let { blog,
+          setSidebarOverlay,
+          openSidebarOverlay } = this.props;
     return (
-      <div className="recommended-blog">
+      <div className="recommended-blog"
+        onClick={() => {
+          setSidebarOverlay("blog", {blogId: blog.id});
+          openSidebarOverlay();
+        }}
+        >
         <div className="recommended-blog-avatar-container">
           <img alt={blog.authorName + " avatar"} className="recommended-blog-avatar rounded" src={blog.avatar} />
         </div>

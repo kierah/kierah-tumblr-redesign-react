@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import { Link } from 'react-router-dom';
 import Post from './Post.js';
 import BlogHead from './BlogHead.js';
 import './OverlayBlog.css';
@@ -10,8 +11,8 @@ import './OverlayBlog.css';
 class OverlayBlog extends Component {
 
   render() {
-//    const blogId = this.props.match.params.blogId;
-    let blogId=this.props.blogId;
+    let blogId = this.props.blogId,
+        blogUrl = "/blog/" + blogId;
     if (this.props.data.loading) {
       return (<div>Loading</div>);
     }
@@ -19,17 +20,19 @@ class OverlayBlog extends Component {
     console.log("render", this.props.data);
 
     return (
-      <div className="page-container">
-        <BlogHead blogId={blogId} overlay={true} />
-        <div className="overlay-blog-container">
-          <div className="overlay-blog">
-            {this.props.data.allPosts.map((post) =>
-              <Post key={post.id} post={post} overlay={true}
-                refresh={() => this.props.data.refetch()} />
-            )}
+      <Link to={blogUrl}>
+        <div className="page-container">
+          <BlogHead blogId={blogId} overlay={true} />
+          <div className="overlay-blog-container">
+            <div className="overlay-blog">
+              {this.props.data.allPosts.map((post) =>
+                <Post key={post.id} post={post} overlay={true}
+                  refresh={() => this.props.data.refetch()} />
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }

@@ -65,7 +65,9 @@ class Feed extends Component {
                 setSidebarOverlay={this.setSidebarOverlay} />
             )}
           </div>
-          <Sidebar isTheater={this.state.isTheater}/>
+          <Sidebar isTheater={this.state.isTheater}
+            openSidebarOverlay={this.toggleSidebarOverlay}
+            setSidebarOverlay={this.setSidebarOverlay} />
           <SidebarOverlay isOpen={this.state.sidebarOverlayOpen}
             close={this.toggleSidebarOverlay}
             type={this.state.sidebarOverlayType}

@@ -12,13 +12,20 @@ class Radar extends Component {
       return (<div>Loading</div>);
     }
 
-    let { blog, data } = this.props,
+    let { blog, data,
+          setSidebarOverlay,
+          openSidebarOverlay } = this.props,
         post = data.topPost;
 
     console.log(this.props);
     return (
       <div className="radar-container">
-        <div className="radar-blog">
+        <div className="radar-blog"
+          onClick={() => {
+            setSidebarOverlay("blog", {blogId: blog.id});
+            openSidebarOverlay();
+          }}
+        >
           <div className="radar-post-container rounded">
             <div className="radar-follow-container">
               <div className="recommended-blog-avatar-container">
