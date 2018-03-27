@@ -97,6 +97,9 @@ I used the following as a direct template for CreatePost:
 And for sorting out the differences between v3 and v4:
 -[Migrating from v2/v3 to v4](https://github.com/ReactTraining/react-router/blob/25776d4dc89b8fb2f575884749766355992116b5/packages/react-router/docs/guides/migrating.md#the-router)
 
+### Velocity
+-[Simple And Clean Animations with Velocity in React](https://medium.com/@Corvidaee/simple-and-clean-animations-with-velocity-in-react-33a5cd82b8bb)
+
 ### Styling
 -[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
 -[Styling Broken Images](https://bitsofco.de/styling-broken-images/)
