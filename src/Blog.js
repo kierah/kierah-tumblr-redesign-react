@@ -10,7 +10,6 @@ import './Blog.css';
 class Blog extends Component {
 
   render() {
-//    const blogId = this.props.match.params.blogId;
     let blogId=this.props.blogId;
     if (this.props.data.loading) {
       return (<div>Loading</div>);

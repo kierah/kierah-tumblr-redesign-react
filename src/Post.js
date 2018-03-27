@@ -4,10 +4,12 @@ import './Post.css';
 class Post extends Component {
 
   render() {
-    let { post, overlay } = this.props;
+    let { post, overlay, explore } = this.props;
     let prefix = "";
     if (overlay) {
       prefix = "overlay-";
+    } else if (explore) {
+      prefix = "explore-";
     }
 
     if (!post) {
@@ -31,7 +33,7 @@ class Post extends Component {
         )}
 
         </div>
-        <PostFoot notes={post.likes}/>
+        <PostFoot notes={post.likes} explore={explore}/>
       </article>
     );
   }
@@ -39,14 +41,20 @@ class Post extends Component {
 
 class PostFoot extends Component {
   render() {
-    let {notes} = this.props;
+    let { notes, explore } = this.props;
 
     return (
       <footer className="post-foot">
         <div className="post-note-count">{notes} notes</div>
-        <div className="post-share-button"><i className="fa fa-paper-plane-o"></i></div>
-        <div className="post-reply-button"><i className="fa fa-comment-o"></i></div>
-        <div className="post-reblog-button"><i className="fa fa-exchange"></i></div>
+        {!explore &&
+          <div className="post-share-button"><i className="fa fa-paper-plane-o"></i></div>
+        }
+        {!explore &&
+          <div className="post-reply-button"><i className="fa fa-comment-o"></i></div>
+        }
+        {!explore &&
+          <div className="post-reblog-button"><i className="fa fa-exchange"></i></div>
+        }
         <div className="post-like-button"><i className="fa fa-heart"></i></div>
       </footer>
     );

@@ -13,8 +13,9 @@ import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import './index.css';
 import BlogApp from './BlogApp';
+//import CreateApp from './CreateApp';
 import FeedApp from './FeedApp';
-import CreateApp from './CreateApp';
+import ExploreApp from './ExploreApp';
 import registerServiceWorker from './registerServiceWorker';
 
 const GRAPHQL_SERVER='http://localhost:4000/graphql'
@@ -29,14 +30,15 @@ const client = new ApolloClient({
 const NotFound = () => (
     <h1>404.. This page is not found!</h1>
   );
+  //        <Route path='/create' component={CreateApp} />
 
 ReactDOM.render((
   <ApolloProvider client={client}>
     <Router>
       <Switch>
+      <Route path='/blog/:blogId' component={BlogApp} />
         <Route exact path='/' component={FeedApp} />
-        <Route path="/create" component={CreateApp} />
-        <Route path='/blog/:blogId' component={BlogApp} />
+        <Route path='/explore' component={ExploreApp} />
         <Route path='*' component={NotFound} />
       </Switch>
     </Router>

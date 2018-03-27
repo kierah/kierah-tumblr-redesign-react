@@ -7,7 +7,7 @@ class FeedApp extends Component {
 
     return (
       <div>
-        <Feed blogId="blog-g2pc4265jf8fytza" />
+        <Feed blogId="blog-g2pc42jtjf9nh0dn" />
     </div>
     );
   }

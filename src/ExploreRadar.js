@@ -5,21 +5,13 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import './Radar.css';
 
-class Radar extends Component {
+class ExploreRadar extends Component {
 
   render() {
-    if (this.props.data.loading) {
-      return (<div>Loading</div>);
-    }
-
     let { blog, data,
           setSidebarOverlay,
           openSidebarOverlay } = this.props,
-        post = data.topPost;
-
-    if (blog.post) {
-      post = blog.post;
-    }
+        post = blog.post;
 
     console.log(this.props);
     return (
@@ -69,14 +61,4 @@ class Radar extends Component {
   }
 }
 
-const RADAR_QUERY=gql`query radarQuery($blogId: String) {
-    topPost(blogId: $blogId) {
-      id
-    	title
-    	content
-    	likes
-    	type
-    }
-}`;
-
-export default graphql(RADAR_QUERY)(Radar)
+export default ExploreRadar

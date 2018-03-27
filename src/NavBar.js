@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { VelocityComponent } from 'velocity-react';
-import './FeedNavBar.css';
+import './NavBar.css';
 
 
-const FeedNavBar = ({ toggleTheater, isTheater }) => (
-  <nav className="feed-nav-bar">
+const NavBar = ({ toggleTheater, isTheater }) => (
+  <nav className="nav-bar">
   <Link to="/">
     <div className="corner-logo"></div>
   </Link>
@@ -47,4 +47,4 @@ const FeedNavBar = ({ toggleTheater, isTheater }) => (
   </nav>
 );
 
-export default FeedNavBar;
+export default NavBar;

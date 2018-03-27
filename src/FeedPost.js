@@ -7,7 +7,6 @@ class FeedPost extends Component {
     let { post,
           openSidebarOverlay,
           setSidebarOverlay } = this.props;
-//    let blogUrl = '/blog/'+post.blogId;
 
     if (!post) {
       return;

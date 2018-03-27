@@ -5,7 +5,7 @@ import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import CreatePostBar from './CreatePostBar';
 import FeedPost from './FeedPost';
-import FeedNavBar from './FeedNavBar';
+import NavBar from './NavBar';
 import Sidebar from './Sidebar';
 import SidebarOverlay from './SidebarOverlay';
 import './Feed.css';
@@ -25,7 +25,7 @@ class Feed extends Component {
 
   toggleTheater = () => {
     let page = document.getElementsByClassName("full-page-container")[0],
-        nav = document.getElementsByClassName("feed-nav-bar")[0];
+        nav = document.getElementsByClassName("nav-bar")[0];
     console.log("Toggle theater");
     if (!this.state.isTheater) {
       page.classList.add("theater-mode");
@@ -53,7 +53,7 @@ class Feed extends Component {
 
     return (
       <div className="full-page-container">
-        <FeedNavBar toggleTheater={this.toggleTheater}
+        <NavBar toggleTheater={this.toggleTheater}
           isTheater={this.state.isTheater}/>
         <div className="feed-page-container">
           <div className="feed-container">
