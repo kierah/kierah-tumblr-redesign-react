@@ -23,7 +23,6 @@ class Explore extends Component {
   toggleTheater = () => {
     let page = document.getElementsByClassName("full-page-container")[0],
         nav = document.getElementsByClassName("nav-bar")[0];
-    console.log("Toggle theater");
     if (!this.state.isTheater) {
       page.classList.add("theater-mode");
       nav.classList.add("theater-nav-bar");
@@ -37,7 +36,6 @@ class Explore extends Component {
   }
 
   setSidebarOverlay = (type, displayProps) => {
-    console.log("set sidebar overlay", displayProps);
     this.setState({sidebarOverlayType: type,
                    displayProps: displayProps});
   }

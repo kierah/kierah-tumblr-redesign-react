@@ -1,7 +1,3 @@
-// Code adapted from https://blog.graph.cool/how-to-use-create-react-app-with-graphql-apollo-62e574617cff
-// React Router stuff based on tutorials:
-// https://medium.freecodecamp.org/beginner-s-guide-to-react-router-53094349669
-// https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
@@ -13,7 +9,6 @@ import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import './index.css';
 import BlogApp from './BlogApp';
-//import CreateApp from './CreateApp';
 import FeedApp from './FeedApp';
 import ExploreApp from './ExploreApp';
 import registerServiceWorker from './registerServiceWorker';
@@ -30,7 +25,6 @@ const client = new ApolloClient({
 const NotFound = () => (
     <h1>404.. This page is not found!</h1>
   );
-  //        <Route path='/create' component={CreateApp} />
 
 ReactDOM.render((
   <ApolloProvider client={client}>

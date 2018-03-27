@@ -1,5 +1,3 @@
-// Apollo integration borrowed from https://blog.graph.cool/how-to-use-create-react-app-with-graphql-apollo-62e574617cff
-
 import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -26,7 +24,6 @@ class Feed extends Component {
   toggleTheater = () => {
     let page = document.getElementsByClassName("full-page-container")[0],
         nav = document.getElementsByClassName("nav-bar")[0];
-    console.log("Toggle theater");
     if (!this.state.isTheater) {
       page.classList.add("theater-mode");
       nav.classList.add("theater-nav-bar");
@@ -40,7 +37,6 @@ class Feed extends Component {
   };
 
   setSidebarOverlay = (type, overlayDisplayProps) => {
-    console.log("set sidebar overlay", overlayDisplayProps);
     this.setState({sidebarOverlayType: type,
                    overlayDisplayProps: overlayDisplayProps});
   };
@@ -50,7 +46,6 @@ class Feed extends Component {
       return (<div>Loading</div>);
     }
     let { id, avatar } =this.props.avatarQuery.blogInfo;
-
     return (
       <div className="full-page-container">
         <NavBar toggleTheater={this.toggleTheater}

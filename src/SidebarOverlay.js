@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
 import { VelocityComponent } from 'velocity-react';
 import OverlayBlog from './OverlayBlog';
-
+import OverlayExplore from './OverlayExplore';
 import './SidebarOverlay.css';
+
 
 class SidebarOverlay extends Component {
   componentDidUpdate() {
     let el = document.getElementsByClassName("full-page-container")[0];
     let { isOpen, close } = this.props;
-    console.log(el);
     if (isOpen) {
       el.addEventListener("click", close);
     } else {
       el.removeEventListener("click", close);
     }
-
   }
   render() {
-    const { isOpen, type, displayProps, close } = this.props;
-    const {blogId} = displayProps;
+    const { isOpen, type, displayProps } = this.props;
+    const { blogId } = displayProps;
 
     return (
       <VelocityComponent
@@ -33,8 +32,9 @@ class SidebarOverlay extends Component {
         {type==="blog" && blogId && (
           <OverlayBlog blogId={blogId} />
         )}
-        {blogId ? blogId : ''}
-        <hr />
+        {type==="explore" && (
+          <OverlayExplore />
+        )}
       </div>
       </VelocityComponent>
     );

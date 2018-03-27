@@ -1,4 +1,3 @@
-// Adapted from https://www.howtographql.com/react-apollo/3-mutations-creating-links/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 

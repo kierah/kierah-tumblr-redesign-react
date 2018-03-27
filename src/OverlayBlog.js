@@ -17,8 +17,6 @@ class OverlayBlog extends Component {
       return (<div>Loading</div>);
     }
 
-    console.log("render", this.props.data);
-
     return (
       <Link to={blogUrl}>
         <div className="page-container">

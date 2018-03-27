@@ -1,0 +1,15 @@
+.overlay-explore-grid-center {
+  display: grid;
+  grid-template-columns: 1fr 310px 1fr;
+  background-color: #485c7a;
+}
+.overlay-explore-page-container {
+  grid-column: 2;
+}
+.overlay-explore-title {
+  border-bottom: 2px solid #9AA2AE;
+  color: #9AA2AE;
+  font-size: 14px;
+  font-weight: bold;
+  padding: .75rem .75rem .25rem .75rem;
+}

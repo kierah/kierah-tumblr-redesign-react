@@ -15,8 +15,6 @@ class Blog extends Component {
       return (<div>Loading</div>);
     }
 
-    console.log("render", this.props.data);
-
     return (
       <div className="page-container">
         <BlogHead blogId={blogId} />

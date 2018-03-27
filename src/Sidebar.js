@@ -1,5 +1,3 @@
-// Apollo integration borrowed from https://blog.graph.cool/how-to-use-create-react-app-with-graphql-apollo-62e574617cff
-
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -10,7 +8,6 @@ import './Sidebar.css';
 class Sidebar extends Component {
 
   render() {
-    console.log("Sidebar ", this.props);
     if (this.props.data.loading) {
       return (<div>Loading</div>);
     }
@@ -33,7 +30,14 @@ class Sidebar extends Component {
           opacity: 1,
           visibility: 'visible',
         }}>
-        <div className="sidebar-container">
+        <div className="sidebar-container"
+          onClick={(evt) => {
+            evt.stopPropagation();
+            evt.preventDefault();
+            setSidebarOverlay("explore", {});
+            openSidebarOverlay();
+          }}
+        >
           <div className="recommended-blogs-title">
             RECOMMENDED BLOGS
           </div>
@@ -72,7 +76,9 @@ class SidebarBlog extends Component {
           openSidebarOverlay } = this.props;
     return (
       <div className="recommended-blog"
-        onClick={() => {
+        onClick={(evt) => {
+          evt.stopPropagation();
+          evt.preventDefault();
           setSidebarOverlay("blog", {blogId: blog.id});
           openSidebarOverlay();
         }}

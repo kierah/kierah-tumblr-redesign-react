@@ -1,6 +1,6 @@
-/* This style overrides the margin in .radar-post-container to meet the needs
+/* This style overrides .radar-post-container to meet the needs
    of radar posts in the explore page. */
 .explore-post-container {
-  margin: 0px !important;
+//  margin: 0px !important;
   width: 310px;
 }

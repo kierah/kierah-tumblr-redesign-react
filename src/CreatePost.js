@@ -1,4 +1,3 @@
-// Adapted from https://www.howtographql.com/react-apollo/3-mutations-creating-links/
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -38,25 +37,25 @@ class CreatePost extends Component {
               cols="70" rows="15"></textarea>
             )}
             {type === "image" && (
-            <input className="create-post-content-input"
-              onChange={e => this.setState({ content: e.target.value })}
-              placeholder="Enter photo url..."
-              maxLength="3000" minLength="5"
-              required
-            ></input>
-            )}
-            {type === "image" && (
-            <div className="create-post-image-preview">
-              <img alt="Create post content preview" src={this.state.content} />
+            <div>
+              <input className="create-post-content-input"
+                onChange={e => this.setState({ content: e.target.value })}
+                placeholder="Enter photo url..."
+                maxLength="3000" minLength="5"
+                required
+              ></input>
+              <div className="create-post-image-preview">
+                <img alt="Put an image URL in the box above to see its preview here. " src={this.state.content} />
+              </div>
             </div>
             )}
             <div className="create-post-foot">
-              <button className="create-post-close"
+              <button className="create-post-close rounded"
                 onClick={e => {
                   this.setState({content: '', title: ''});
                    finishCreatingPost();
                  }}>Close</button>
-              <button className="create-post-post"
+              <button className="create-post-post rounded"
                 onClick={e => {
                   this._createPost();
                   this.setState({content: '', title: ''});
@@ -73,8 +72,6 @@ class CreatePost extends Component {
     _createPost = async () => {
       const { title, content } = this.state;
       const { type, blogId, avatar } = this.props;
-      console.log(this.props);
-      console.log(title, content, type, blogId, avatar);
       await this.props.createPostMutation({
         variables: {
           title,

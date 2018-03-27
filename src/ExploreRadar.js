@@ -1,5 +1,3 @@
-// Apollo integration borrowed from https://blog.graph.cool/how-to-use-create-react-app-with-graphql-apollo-62e574617cff
-
 import React, { Component } from 'react';
 import './Radar.css';
 import './ExploreRadar.css';
@@ -7,7 +5,7 @@ import './ExploreRadar.css';
 class ExploreRadar extends Component {
 
   render() {
-    let { blog, data,
+    let { blog,
           setSidebarOverlay,
           openSidebarOverlay } = this.props,
         post = blog.post;
@@ -15,7 +13,7 @@ class ExploreRadar extends Component {
     return (
       <div className="radar-container">
         <div className="radar-blog">
-          <div className="radar-post-container explore-post-container rounded">
+          <div className="radar-post-container explore-post-container rounded shadow">
             <div className="radar-follow-container"
               onClick={() => {
                 setSidebarOverlay("blog", {blogId: blog.id});
