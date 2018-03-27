@@ -6,7 +6,7 @@ import './SidebarOverlay.css';
 
 class SidebarOverlay extends Component {
   componentDidUpdate() {
-    let el = document.getElementsByClassName("feed-page-container")[0];
+    let el = document.getElementsByClassName("full-page-container")[0];
     let { isOpen, close } = this.props;
     console.log(el);
     if (isOpen) {

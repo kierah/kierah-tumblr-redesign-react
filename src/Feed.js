@@ -13,7 +13,7 @@ import './Feed.css';
 class Feed extends Component {
   state = { sidebarOverlayOpen: false,
             sidebarOverlayType: "blog",
-            displayProps: {},
+            overlayDisplayProps: {},
             isTheater: false};
 
   toggleSidebarOverlay = () => {
@@ -39,10 +39,10 @@ class Feed extends Component {
     }
   };
 
-  setSidebarOverlay = (type, displayProps) => {
-    console.log("set sidebar overlay", displayProps);
+  setSidebarOverlay = (type, overlayDisplayProps) => {
+    console.log("set sidebar overlay", overlayDisplayProps);
     this.setState({sidebarOverlayType: type,
-                   displayProps: displayProps});
+                   overlayDisplayProps: overlayDisplayProps});
   };
 
   render() {
@@ -71,7 +71,7 @@ class Feed extends Component {
           <SidebarOverlay isOpen={this.state.sidebarOverlayOpen}
             close={this.toggleSidebarOverlay}
             type={this.state.sidebarOverlayType}
-            displayProps={this.state.displayProps}/>
+            displayProps={this.state.overlayDisplayProps}/>
         </div>
       </div>
     );

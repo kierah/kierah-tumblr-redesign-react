@@ -1,10 +1,10 @@
-import './Explore.css';
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import NavBar from './NavBar';
-import Post from './Post';
 import ExploreRadar from './ExploreRadar';
+import SidebarOverlay from './SidebarOverlay';
+import './Explore.css';
 
 class Explore extends Component {
   state = { sidebarOverlayOpen: false,
@@ -47,7 +47,6 @@ class Explore extends Component {
       return (<div>Loading</div>);
     }
     let blogs = this.props.data.topPostFromAllBlogs;
-    console.log(blogs);
     return (
       <div className="full-page-container">
         <NavBar toggleTheater={this.toggleTheater}
@@ -55,13 +54,18 @@ class Explore extends Component {
         <div className="explore-grid-center">
           <div className="explore-page-container">
             {blogs.map((blog) =>
-              <ExploreRadar blogId={blog.id} blog={blog}
-                setSidebarOverlay={() => {}}
-                openSidebarOverlay={() => {}} />
+              <ExploreRadar key={blog.id} blogId={blog.id} blog={blog}
+                setSidebarOverlay={this.setSidebarOverlay}
+                openSidebarOverlay={this.toggleSidebarOverlay} />
 
             )}
           </div>
         </div>
+        <SidebarOverlay isOpen={this.state.sidebarOverlayOpen}
+          close={this.toggleSidebarOverlay}
+          type={this.state.sidebarOverlayType}
+          displayProps={this.state.displayProps}/>
+
       </div>
     );
   }
