@@ -57,6 +57,8 @@ For example, the Sidebar in the FeedApp contains a (mimicking tumblr) feature ca
 yarn start
 ```
 
+There is a [heroku instance](https://murmuring-sea-53936.herokuapp.com/) you may view if you don't want to set it up yourself.
+
 ## What Else Do I Need to Run This
 
 It stands alone. However, if you want the app to display data, you'll need another project running on localhost:4000.
@@ -64,9 +66,9 @@ It stands alone. However, if you want the app to display data, you'll need anoth
 Right now, in order to run this and have it work, you need to look at the first blog created in the database. Use MongoDB Compass to do that and copy the blogId into FeedApp.js.
 
 The db created by the backend package will generate randomized UIDs, so any time you drop the database or
-deploy the app for the first time, you need to grab that authorName=this-user blogId and paste it into FeedApp.
+deploy the app for the first time, you need to grab that authorName=this-user blogId and provide it as the value of an environment variable called DEFAULT_USERID. A .env will work fine for this.
 
-Coming soon, a heroku instance of all this so you can play without pasting. Happy Trails. 
+Coming soon, a heroku instance of all this so you can play without pasting. Happy Trails.
 
 [TODO include that project here]
 
