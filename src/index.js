@@ -7,16 +7,17 @@ import {
 } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
+import dotenv from 'dotenv';
 import './index.css';
 import BlogApp from './BlogApp';
 import FeedApp from './FeedApp';
 import ExploreApp from './ExploreApp';
 import registerServiceWorker from './registerServiceWorker';
 
-const GRAPHQL_SERVER='http://localhost:4000/graphql'
+const GRAPHQL_URI=process.env.GRAPHQL_URI || 'http://localhost:4000/graphql';
 
 const networkInterface = createNetworkInterface({
-  uri: GRAPHQL_SERVER
+  uri: GRAPHQL_URI
 })
 const client = new ApolloClient({
   networkInterface
