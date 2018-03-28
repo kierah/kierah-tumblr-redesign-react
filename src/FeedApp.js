@@ -5,12 +5,11 @@ import './FeedApp.css';
 
 dotenv.config();
 
-const DEFAULT_USERID= process.env.DEFAULT_USERID || 'blog-yx8ixo18jfb83hit';
-
+const DEFAULT_USERID= process.env.REACT_APP_DEFAULT_USERID || 'blog-yx8ixo18jfb83hit';
+console.log("Using default blogId: ", DEFAULT_USERID);
 
 class FeedApp extends Component {
   render() {
-
     return (
       <div>
         <Feed blogId={DEFAULT_USERID} />

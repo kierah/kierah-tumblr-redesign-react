@@ -14,7 +14,9 @@ import FeedApp from './FeedApp';
 import ExploreApp from './ExploreApp';
 import registerServiceWorker from './registerServiceWorker';
 
-const GRAPHQL_URI=process.env.GRAPHQL_URI || 'http://localhost:4000/graphql';
+dotenv.config();
+
+const GRAPHQL_URI=process.env.REACT_APP_GRAPHQL_URI || 'http://localhost:4000/graphql';
 
 const networkInterface = createNetworkInterface({
   uri: GRAPHQL_URI
@@ -22,6 +24,8 @@ const networkInterface = createNetworkInterface({
 const client = new ApolloClient({
   networkInterface
 })
+
+console.log("Using GraphQL URI: ", GRAPHQL_URI);
 
 const NotFound = () => (
     <h1>404.. This page is not found!</h1>
