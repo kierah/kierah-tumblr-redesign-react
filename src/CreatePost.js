@@ -38,7 +38,7 @@ class CreatePost extends Component {
             )}
             {type === "image" && (
             <div>
-              <input className="create-post-content-input"
+              <input spellcheck="false" className="create-post-content-input"
                 onChange={e => this.setState({ content: e.target.value })}
                 placeholder="Enter photo url..."
                 maxLength="3000" minLength="5"
